@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>People | Laboratory of Emerging Technologies</title>
+  <title>Publications | Laboratory of Emerging Technologies</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,42 +21,29 @@
         </button>
         <ul class="nav-links" id="nav-links">
           <li><a href="index.html">Home</a></li>
-          <li><a class="active" href="people.html">People</a></li>
+          <li><a href="people.html">People</a></li>
           <li><a href="seminars.html">Seminars</a></li>
           <li><a href="index.html#research">Research</a></li>
-          <li><a href="publications.html">Publications</a></li>
-          <li><a href="index.html#publications">Publications</a></li>
+          <li><a class="active" href="publications.html">Publications</a></li>
           <li><a href="index.html#contact">Contact</a></li>
         </ul>
       </nav>
       <div class="header-content">
-        <h1>People</h1>
-        <p>Our diverse team of researchers, engineers, and students drives innovation across disciplines.</p>
+        <h1>Publications</h1>
+        <p>
+          Browse peer-reviewed articles, conference proceedings, and technical reports authored by the Laboratory of
+          Emerging Technologies.
+        </p>
       </div>
     </div>
   </header>
 
   <main class="section">
     <div class="container">
-      <div class="table-controls">
-        <label for="people-filter">Filter by role:</label>
-        <select id="people-filter">
-          <option value="all">All</option>
-        </select>
-      </div>
-      <div class="table-container">
-        <table class="people-table" aria-describedby="people-filter">
-          <thead>
-            <tr>
-              <th scope="col">Name</th>
-              <th scope="col">Job Position</th>
-              <th scope="col">Email</th>
-              <th scope="col">Personal Website</th>
-            </tr>
-          </thead>
-          <tbody id="people-table-body"></tbody>
-        </table>
-      </div>
+      <p class="section-intro">
+        Publications are organized by year with quick links to PDFs, slides, or external resources where available.
+      </p>
+      <div id="publications-list" class="publication-list"></div>
     </div>
   </main>
 
@@ -66,6 +53,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/people.js" type="module"></script>
+  <script src="assets/js/publications.js" type="module"></script>
 </body>
 </html>
