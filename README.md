@@ -1,4 +1,4 @@
-# CIS-Lab Website
+# LET Lab Website
 
 Static laboratory website inspired by the [Su Nan Ze academic template](https://su-nan-ze.github.io/). The site is built with plain HTML, CSS, and JavaScript for straightforward maintenance and hosting on any static file server (GitHub Pages, university infrastructure, etc.).
 
