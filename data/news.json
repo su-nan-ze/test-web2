@@ -1,0 +1,23 @@
+[
+  {
+    "id": "2025-quantum-secure-grant",
+    "title": "CIS-Lab receives multi-year award for quantum-secure communications",
+    "date": "2025-04-10",
+    "description": "The lab will lead a consortium developing verifiable post-quantum security for satellite networks.",
+    "content": "The Cryptography and Information Security Laboratory (CIS-Lab) has been selected to coordinate a new international collaboration focused on quantum-secure communication infrastructures. The project combines advanced cryptographic protocol design with deployable satellite hardware demonstrations."
+  },
+  {
+    "id": "2025-privacy-workshop",
+    "title": "CIS-Lab hosts workshop on privacy-preserving machine learning",
+    "date": "2025-02-28",
+    "description": "Researchers from academia and industry gathered to share cutting-edge insights on secure federated analytics.",
+    "content": "Keynotes covered the latest directions in homomorphic encryption and secure aggregation at scale. Participants also joined hands-on sessions to explore open-source tooling maintained by CIS-Lab members."
+  },
+  {
+    "id": "2025-new-researchers",
+    "title": "Welcome our 2025 cohort of graduate researchers",
+    "date": "2025-01-15",
+    "description": "We are excited to welcome seven new graduate students joining the lab this semester.",
+    "content": "Incoming students will contribute to projects in differential privacy, secure multiparty computation, and hardware-level trusted execution. Welcome to the team!"
+  }
+]
