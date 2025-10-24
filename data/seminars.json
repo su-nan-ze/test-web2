@@ -1,10 +1,12 @@
 [
   {
+    "id": "2025-designing-transparent-ai",
     "title": "Designing Transparent AI Systems",
     "speaker": "Prof. Elena Ruiz (University of Madrid)",
     "datetime": "2025-04-18T10:00:00",
     "location": "Room 310, Innovation Hall",
     "year": 2025,
+    "summary": "An overview of techniques for building transparent cryptographic AI systems that inspire trust in high-stakes settings.",
     "resources": [
       {
         "label": "Slides (PDF)",
@@ -13,11 +15,13 @@
     ]
   },
   {
+    "id": "2025-edge-intelligence-smart-manufacturing",
     "title": "Edge Intelligence for Smart Manufacturing",
     "speaker": "Dr. Marcus Feld (TechForge Labs)",
     "datetime": "2025-03-28T14:00:00",
     "location": "Room 210, Innovation Hall",
     "year": 2025,
+    "summary": "Explores privacy-preserving analytics for smart factories and the cryptographic safeguards that enable secure collaboration.",
     "resources": [
       {
         "label": "Whitepaper",
@@ -30,11 +34,13 @@
     ]
   },
   {
+    "id": "2024-collaborative-robotics-healthcare",
     "title": "Collaborative Robotics in Healthcare",
     "speaker": "Dr. Noriko Tanaka (Osaka Robotics Center)",
     "datetime": "2024-12-06T09:30:00",
     "location": "Hybrid (Zoom + Room 102)",
     "year": 2024,
+    "summary": "Discusses secure robotic workflows for hospitals, emphasizing information assurance and resilient coordination.",
     "resources": [
       {
         "label": "Seminar Paper (PDF)",

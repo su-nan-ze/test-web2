@@ -4,9 +4,12 @@ Static laboratory website inspired by the [Su Nan Ze academic template](https://
 
 ## Structure
 
-- `index.html` – Home page with hero, news, research, publications, and contact sections.
+- `index.html` – Home page with hero, news highlights, research themes, a publications call-to-action, and contact details.
 - `people.html` – Team directory rendered from `data/people.json` into a sortable table with name, job position, email, and personal website columns.
-- `seminars.html` – Seminar timeline rendered from `data/seminars.json`, supporting links to PDFs and other resources.
+- `news.html` – Archive of lab announcements populated from `data/news.json` with year filtering.
+- `seminars.html` – Seminar timeline rendered from `data/seminars.json`, supporting links to PDFs and individual seminar pages (`seminar.html`).
+- `publications.html` – Research library grouped by year and hydrated from `data/publications.json` with optional resource links and detail pages (`publication.html`).
+- `seminar.html` / `publication.html` – Detail templates that hydrate from the shared JSON data based on query parameters.
 - `assets/css/styles.css` – Shared styling.
 - `assets/js/*.js` – JavaScript modules that hydrate each page.
 - `data/*.json` – Content data files for easy editing.
@@ -15,10 +18,10 @@ Static laboratory website inspired by the [Su Nan Ze academic template](https://
 ## Editing Content
 
 1. Update the JSON files inside `data/` using any text editor.
-   - Add people records with `name`, `position`, `email`, `website`, and `role` fields.
-   - Add seminar entries with `title`, `speaker`, `datetime`, `location`, `year`, and optional `resources`.
-   - Add news entries with `title`, `date`, and `description`.
-   - Add publication citations with `year`, optional `month`, `title`, `authors`, `venue`, and optional `links` arrays.
+  - Add people records with `name`, `position`, `email`, `website`, and `role` fields.
+  - Add seminar entries with `id`, `title`, `speaker`, `datetime`, `location`, `year`, `summary`, and optional `resources` (each with `label` + `url`).
+  - Add news entries with `id`, `title`, `date`, `description`, and optional longer-form `content`.
+  - Add publication citations with `id`, `year`, optional `month`, `title`, `authors`, `venue`, optional `note`, `abstract`, and optional `links` arrays (`label` + `url`).
 2. Place PDF slide decks or papers inside `assets/resources/` (or link to external URLs).
 3. Commit and redeploy the static files to your hosting platform.
 

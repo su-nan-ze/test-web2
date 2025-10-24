@@ -118,6 +118,12 @@ a:focus {
   font-size: 1.05rem;
 }
 
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
 .cta {
   display: inline-block;
   background: #ffffff;
@@ -133,6 +139,16 @@ a:focus {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
+.cta--secondary {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.cta--secondary:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
 .section { 
   padding: clamp(3rem, 8vw, 5rem) 0;
 }
@@ -142,6 +158,10 @@ a:focus {
   margin-bottom: 2rem;
   color: var(--muted);
   font-size: 1.05rem;
+}
+
+.section-actions {
+  margin-top: 2rem;
 }
 
 .section--light {
@@ -226,6 +246,15 @@ a:focus {
 
 .publication-title {
   font-weight: 600;
+}
+
+.publication-title a {
+  color: inherit;
+}
+
+.publication-abstract {
+  margin: 0;
+  color: var(--text);
 }
 
 .publication-meta {
@@ -388,6 +417,79 @@ a:focus {
 
 .resource-links a:hover {
   background: rgba(39, 70, 144, 0.2);
+}
+
+.timeline-summary {
+  margin: 0;
+  color: var(--text);
+}
+
+.detail-card {
+  background: var(--card-bg);
+  padding: clamp(1.5rem, 5vw, 2.5rem);
+  border-radius: 1.25rem;
+  box-shadow: 0 16px 34px rgba(39, 70, 144, 0.1);
+  display: grid;
+  gap: 1.5rem;
+}
+
+.detail-metadata {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+}
+
+.detail-metadata div {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.detail-metadata dt {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.detail-metadata dd {
+  margin: 0;
+}
+
+.detail-summary {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.detail-resources ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.detail-resources h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+}
+
+.detail-resources li a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(39, 70, 144, 0.1);
+  color: var(--primary);
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.detail-resources li a:hover {
+  background: rgba(39, 70, 144, 0.2);
+}
+
+.detail-back {
+  margin-top: 1.5rem;
 }
 
 @media (max-width: 720px) {

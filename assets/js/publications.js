@@ -54,9 +54,17 @@ async function loadPublications() {
           const itemEl = document.createElement('li');
           itemEl.className = 'publication-item';
 
+          const detailUrl = item.id ? `publication.html?id=${encodeURIComponent(item.id)}` : '';
           const titleEl = document.createElement('p');
           titleEl.className = 'publication-title';
-          titleEl.textContent = item.title;
+          if (detailUrl) {
+            const link = document.createElement('a');
+            link.href = detailUrl;
+            link.textContent = item.title;
+            titleEl.appendChild(link);
+          } else {
+            titleEl.textContent = item.title;
+          }
           itemEl.appendChild(titleEl);
 
           const metaParts = [];
@@ -69,6 +77,13 @@ async function loadPublications() {
             metaEl.className = 'publication-meta';
             metaEl.textContent = metaParts.join(' · ');
             itemEl.appendChild(metaEl);
+          }
+
+          if (item.abstract) {
+            const abstractEl = document.createElement('p');
+            abstractEl.className = 'publication-abstract';
+            abstractEl.textContent = item.abstract;
+            itemEl.appendChild(abstractEl);
           }
 
           const links = Array.isArray(item.links)

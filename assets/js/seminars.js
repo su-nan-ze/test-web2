@@ -36,18 +36,50 @@ async function loadSeminars() {
         .filter((item) => selected === 'all' || String(item.year) === selected)
         .sort((a, b) => new Date(b.datetime) - new Date(a.datetime))
         .forEach((item) => {
+          const detailUrl = item.id ? `seminar.html?id=${encodeURIComponent(item.id)}` : '';
           const article = document.createElement('article');
           article.className = 'timeline-item';
-          article.innerHTML = `
-            <header>
-              <div>
-                <h3>${item.title}</h3>
-                <p>${item.speaker}</p>
-              </div>
-              <time datetime="${item.datetime}">${formatDateTime(item.datetime)}</time>
-            </header>
-            <p><strong>Location:</strong> ${item.location}</p>
-          `;
+
+          const header = document.createElement('header');
+          const info = document.createElement('div');
+          const titleEl = document.createElement('h3');
+
+          if (detailUrl) {
+            const link = document.createElement('a');
+            link.href = detailUrl;
+            link.textContent = item.title;
+            titleEl.appendChild(link);
+          } else {
+            titleEl.textContent = item.title;
+          }
+
+          const speakerEl = document.createElement('p');
+          speakerEl.textContent = item.speaker;
+
+          info.appendChild(titleEl);
+          info.appendChild(speakerEl);
+
+          const timeEl = document.createElement('time');
+          timeEl.dateTime = item.datetime;
+          timeEl.textContent = formatDateTime(item.datetime);
+
+          header.appendChild(info);
+          header.appendChild(timeEl);
+          article.appendChild(header);
+
+          const locationEl = document.createElement('p');
+          const locationLabel = document.createElement('strong');
+          locationLabel.textContent = 'Location:';
+          locationEl.appendChild(locationLabel);
+          locationEl.append(` ${item.location}`);
+          article.appendChild(locationEl);
+
+          if (item.summary) {
+            const summaryEl = document.createElement('p');
+            summaryEl.className = 'timeline-summary';
+            summaryEl.textContent = item.summary;
+            article.appendChild(summaryEl);
+          }
 
           if (Array.isArray(item.resources) && item.resources.length) {
             const resources = document.createElement('div');
