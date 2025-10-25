@@ -31,37 +31,40 @@ async function loadNews() {
       const fragment = document.createDocumentFragment();
 
       newsItems
-        .slice()
-        .sort((a, b) => new Date(b.date) - new Date(a.date))
         .filter((item) => selected === 'all' || String(new Date(item.date).getFullYear()) === selected)
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
         .forEach((item) => {
+          const slug = item.slug ?? '';
           const article = document.createElement('article');
           article.className = 'timeline-item';
 
           const header = document.createElement('header');
-          const info = document.createElement('div');
-          const titleEl = document.createElement('h3');
-          titleEl.textContent = item.title;
-          const descEl = document.createElement('p');
-          descEl.textContent = item.description;
+          const titleWrap = document.createElement('div');
 
-          info.appendChild(titleEl);
-          info.appendChild(descEl);
+          const titleLink = document.createElement('a');
+          titleLink.href = slug ? `news-detail.html?slug=${encodeURIComponent(slug)}` : '#';
+          titleLink.className = 'timeline-title';
+          titleLink.innerHTML = `<h3>${item.title}</h3>`;
 
-          const timeEl = document.createElement('time');
-          timeEl.dateTime = item.date;
-          timeEl.textContent = formatDate(item.date);
+          const summary = document.createElement('p');
+          summary.textContent = item.description;
 
-          header.appendChild(info);
-          header.appendChild(timeEl);
+          titleWrap.appendChild(titleLink);
+          titleWrap.appendChild(summary);
+
+          const time = document.createElement('time');
+          time.dateTime = item.date;
+          time.textContent = formatDate(item.date);
+
+          header.appendChild(titleWrap);
+          header.appendChild(time);
           article.appendChild(header);
 
-          if (item.content) {
-            const contentEl = document.createElement('p');
-            contentEl.className = 'timeline-summary';
-            contentEl.textContent = item.content;
-            article.appendChild(contentEl);
-          }
+          const moreLink = document.createElement('a');
+          moreLink.href = slug ? `news-detail.html?slug=${encodeURIComponent(slug)}` : '#';
+          moreLink.className = 'inline-link';
+          moreLink.textContent = 'Read announcement';
+          article.appendChild(moreLink);
 
           fragment.appendChild(article);
         });
@@ -69,7 +72,7 @@ async function loadNews() {
       timeline.innerHTML = '';
       if (!fragment.childNodes.length) {
         const emptyState = document.createElement('p');
-        emptyState.textContent = 'No news items found for the selected year.';
+        emptyState.textContent = 'No news available for the selected year.';
         timeline.appendChild(emptyState);
       } else {
         timeline.appendChild(fragment);
@@ -79,7 +82,7 @@ async function loadNews() {
     yearFilter.addEventListener('change', renderNews);
     renderNews();
   } catch (error) {
-    timeline.innerHTML = '<p>Unable to load news at this time.</p>';
+    timeline.innerHTML = '<p>Unable to load news items at this time.</p>';
     console.error(error);
   }
 }

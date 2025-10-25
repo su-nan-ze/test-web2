@@ -23,17 +23,37 @@ async function loadNews() {
 
     const fragment = document.createDocumentFragment();
     newsItems.forEach((item) => {
+      const slug = item.slug ?? '';
       const article = document.createElement('article');
       article.className = 'card';
-      article.innerHTML = `
-        <time datetime="${item.date}">${new Date(item.date).toLocaleDateString(undefined, {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric'
-        })}</time>
-        <h3>${item.title}</h3>
-        <p>${item.description}</p>
-      `;
+
+      const date = document.createElement('time');
+      date.dateTime = item.date;
+      date.textContent = new Date(item.date).toLocaleDateString(undefined, {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+      });
+
+      const title = document.createElement('h3');
+      const titleLink = document.createElement('a');
+      titleLink.href = slug ? `news-detail.html?slug=${encodeURIComponent(slug)}` : '#';
+      titleLink.textContent = item.title;
+      title.appendChild(titleLink);
+
+      const description = document.createElement('p');
+      description.textContent = item.description;
+
+      const cta = document.createElement('a');
+      cta.href = slug ? `news-detail.html?slug=${encodeURIComponent(slug)}` : '#';
+      cta.className = 'inline-link';
+      cta.textContent = 'Read more';
+
+      article.appendChild(date);
+      article.appendChild(title);
+      article.appendChild(description);
+      article.appendChild(cta);
+
       fragment.appendChild(article);
     });
 
@@ -46,4 +66,87 @@ async function loadNews() {
 }
 
 loadNews();
+
+async function loadHomePublications() {
+  const publicationsList = document.getElementById('home-publications-list');
+  if (!publicationsList) return;
+
+  try {
+    const response = await fetch('data/publications.json');
+    if (!response.ok) throw new Error(`Failed to load publications: ${response.status}`);
+    const publications = await response.json();
+
+    const sorted = [...publications].sort((a, b) => {
+      const yearDiff = (b.year ?? 0) - (a.year ?? 0);
+      if (yearDiff !== 0) return yearDiff;
+      const monthA = typeof a.month === 'number' ? a.month : 0;
+      const monthB = typeof b.month === 'number' ? b.month : 0;
+      return monthB - monthA;
+    });
+
+    const featured = sorted.slice(0, 3);
+
+    if (!featured.length) {
+      publicationsList.innerHTML = '<p>Publication previews are coming soon. Visit the archive for more.</p>';
+      return;
+    }
+
+    const fragment = document.createDocumentFragment();
+
+    featured.forEach((item) => {
+      const slug = item.slug ?? '';
+      const article = document.createElement('article');
+      article.className = 'card card--publication';
+
+      const parts = [];
+      if (item.year) parts.push(item.year);
+      if (item.venue) parts.push(item.venue);
+      if (parts.length) {
+        const meta = document.createElement('p');
+        meta.className = 'card-meta';
+        meta.textContent = parts.join(' • ');
+        article.appendChild(meta);
+      }
+
+      const title = document.createElement('h3');
+      const titleLink = document.createElement('a');
+      titleLink.href = slug ? `publication-detail.html?slug=${encodeURIComponent(slug)}` : '#';
+      titleLink.textContent = item.title;
+      title.appendChild(titleLink);
+
+      const cta = document.createElement('a');
+      cta.href = slug ? `publication-detail.html?slug=${encodeURIComponent(slug)}` : '#';
+      cta.className = 'inline-link';
+      cta.textContent = 'Read more';
+
+      article.appendChild(title);
+
+      if (item.authors) {
+        const authors = document.createElement('p');
+        authors.className = 'card-authors';
+        authors.textContent = item.authors;
+        article.appendChild(authors);
+      }
+
+      if (item.summary) {
+        const summary = document.createElement('p');
+        summary.className = 'card-summary';
+        summary.textContent = item.summary;
+        article.appendChild(summary);
+      }
+
+      article.appendChild(cta);
+
+      fragment.appendChild(article);
+    });
+
+    publicationsList.innerHTML = '';
+    publicationsList.appendChild(fragment);
+  } catch (error) {
+    publicationsList.innerHTML = '<p>Unable to load publications right now. Please check back soon.</p>';
+    console.error(error);
+  }
+}
+
+loadHomePublications();
 

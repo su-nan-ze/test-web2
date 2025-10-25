@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>News | The Cryptography and Information Security Laboratory</title>
+  <title>News Details | The Cryptography and Information Security Laboratory</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,28 +22,22 @@
         <ul class="nav-links" id="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="people.html">People</a></li>
-          <li><a class="active" href="news.html">News</a></li>
+          <li><a href="news.html" class="active">News</a></li>
           <li><a href="seminars.html">Seminars</a></li>
           <li><a href="publications.html">Publications</a></li>
           <li><a href="index.html#contact">Contact</a></li>
         </ul>
       </nav>
       <div class="header-content">
-        <h1>Lab News</h1>
-        <p>Stay up to date with announcements, milestones, and opportunities from CIS-Lab.</p>
+        <h1 id="news-title">News</h1>
+        <p id="news-subtitle">Catch the latest updates from CIS-Lab.</p>
       </div>
     </div>
   </header>
 
   <main class="section">
     <div class="container">
-      <div class="seminar-controls">
-        <label for="news-year">Year:</label>
-        <select id="news-year">
-          <option value="all">All</option>
-        </select>
-      </div>
-      <div class="timeline" id="news-timeline"></div>
+      <article class="detail-card" id="news-detail" aria-live="polite"></article>
     </div>
   </main>
 
@@ -53,6 +47,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/news.js" type="module"></script>
+  <script src="assets/js/news-detail.js" type="module"></script>
 </body>
 </html>

@@ -54,17 +54,14 @@ async function loadPublications() {
           const itemEl = document.createElement('li');
           itemEl.className = 'publication-item';
 
-          const detailUrl = item.id ? `publication.html?id=${encodeURIComponent(item.id)}` : '';
           const titleEl = document.createElement('p');
           titleEl.className = 'publication-title';
-          if (detailUrl) {
-            const link = document.createElement('a');
-            link.href = detailUrl;
-            link.textContent = item.title;
-            titleEl.appendChild(link);
-          } else {
-            titleEl.textContent = item.title;
-          }
+
+          const slug = item.slug ?? '';
+          const detailLink = document.createElement('a');
+          detailLink.href = slug ? `publication-detail.html?slug=${encodeURIComponent(slug)}` : '#';
+          detailLink.textContent = item.title;
+          titleEl.appendChild(detailLink);
           itemEl.appendChild(titleEl);
 
           const metaParts = [];
@@ -77,13 +74,6 @@ async function loadPublications() {
             metaEl.className = 'publication-meta';
             metaEl.textContent = metaParts.join(' · ');
             itemEl.appendChild(metaEl);
-          }
-
-          if (item.abstract) {
-            const abstractEl = document.createElement('p');
-            abstractEl.className = 'publication-abstract';
-            abstractEl.textContent = item.abstract;
-            itemEl.appendChild(abstractEl);
           }
 
           const links = Array.isArray(item.links)
@@ -110,6 +100,12 @@ async function loadPublications() {
               itemEl.appendChild(linksEl);
             }
           }
+
+          const moreLink = document.createElement('a');
+          moreLink.href = slug ? `publication-detail.html?slug=${encodeURIComponent(slug)}` : '#';
+          moreLink.className = 'inline-link';
+          moreLink.textContent = 'View publication details';
+          itemEl.appendChild(moreLink);
 
           itemsList.appendChild(itemEl);
         });

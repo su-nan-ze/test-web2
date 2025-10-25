@@ -1,23 +1,32 @@
 [
   {
-    "id": "2025-quantum-secure-grant",
-    "title": "CIS-Lab receives multi-year award for quantum-secure communications",
+    "slug": "multi-year-grant-for-human-ai-research",
+    "title": "CIS-Lab receives multi-year grant for human-AI collaboration research",
     "date": "2025-04-10",
-    "description": "The lab will lead a consortium developing verifiable post-quantum security for satellite networks.",
-    "content": "The Cryptography and Information Security Laboratory (CIS-Lab) has been selected to coordinate a new international collaboration focused on quantum-secure communication infrastructures. The project combines advanced cryptographic protocol design with deployable satellite hardware demonstrations."
+    "description": "Our team was awarded a new grant to explore trustworthy AI for healthcare decision support systems.",
+    "content": [
+      "The Cryptography and Information Security Laboratory (CIS-Lab) will lead a three-year initiative focused on trustworthy decision support tools for clinicians.",
+      "The project brings together collaborators from medicine, human-computer interaction, and privacy-preserving machine learning to deploy pilot systems at partner hospitals."
+    ]
   },
   {
-    "id": "2025-privacy-workshop",
-    "title": "CIS-Lab hosts workshop on privacy-preserving machine learning",
+    "slug": "new-publication-accepted-at-acm-chi",
+    "title": "New publication accepted at ACM CHI",
     "date": "2025-02-28",
-    "description": "Researchers from academia and industry gathered to share cutting-edge insights on secure federated analytics.",
-    "content": "Keynotes covered the latest directions in homomorphic encryption and secure aggregation at scale. Participants also joined hands-on sessions to explore open-source tooling maintained by CIS-Lab members."
+    "description": "Congratulations to the Interactive Systems group for their paper on explainable user interfaces.",
+    "content": [
+      "The paper proposes a lightweight explanation toolkit that enables rapid testing of transparency techniques in interactive environments.",
+      "Lead author Sophia Patel will present the work during the Explainable AI session on May 8 in Honolulu, HI."
+    ]
   },
   {
-    "id": "2025-new-researchers",
+    "slug": "welcome-2025-graduate-researchers",
     "title": "Welcome our 2025 cohort of graduate researchers",
     "date": "2025-01-15",
-    "description": "We are excited to welcome seven new graduate students joining the lab this semester.",
-    "content": "Incoming students will contribute to projects in differential privacy, secure multiparty computation, and hardware-level trusted execution. Welcome to the team!"
+    "description": "We are excited to welcome six new graduate students joining the lab this semester.",
+    "content": [
+      "Incoming students will join research thrusts in secure distributed systems, post-quantum cryptography, and human factors in security.",
+      "Please join us in welcoming them at the spring kickoff reception on February 2."
+    ]
   }
 ]

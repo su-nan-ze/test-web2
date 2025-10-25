@@ -36,50 +36,34 @@ async function loadSeminars() {
         .filter((item) => selected === 'all' || String(item.year) === selected)
         .sort((a, b) => new Date(b.datetime) - new Date(a.datetime))
         .forEach((item) => {
-          const detailUrl = item.id ? `seminar.html?id=${encodeURIComponent(item.id)}` : '';
+          const slug = item.slug ?? '';
           const article = document.createElement('article');
           article.className = 'timeline-item';
 
           const header = document.createElement('header');
-          const info = document.createElement('div');
-          const titleEl = document.createElement('h3');
+          const headerText = document.createElement('div');
+          const titleLink = document.createElement('a');
+          titleLink.href = slug ? `seminar-detail.html?slug=${encodeURIComponent(slug)}` : '#';
+          titleLink.className = 'timeline-title';
+          titleLink.innerHTML = `<h3>${item.title}</h3>`;
 
-          if (detailUrl) {
-            const link = document.createElement('a');
-            link.href = detailUrl;
-            link.textContent = item.title;
-            titleEl.appendChild(link);
-          } else {
-            titleEl.textContent = item.title;
-          }
+          const speaker = document.createElement('p');
+          speaker.textContent = item.speaker;
 
-          const speakerEl = document.createElement('p');
-          speakerEl.textContent = item.speaker;
+          headerText.appendChild(titleLink);
+          headerText.appendChild(speaker);
 
-          info.appendChild(titleEl);
-          info.appendChild(speakerEl);
+          const time = document.createElement('time');
+          time.dateTime = item.datetime;
+          time.textContent = formatDateTime(item.datetime);
 
-          const timeEl = document.createElement('time');
-          timeEl.dateTime = item.datetime;
-          timeEl.textContent = formatDateTime(item.datetime);
-
-          header.appendChild(info);
-          header.appendChild(timeEl);
+          header.appendChild(headerText);
+          header.appendChild(time);
           article.appendChild(header);
 
-          const locationEl = document.createElement('p');
-          const locationLabel = document.createElement('strong');
-          locationLabel.textContent = 'Location:';
-          locationEl.appendChild(locationLabel);
-          locationEl.append(` ${item.location}`);
-          article.appendChild(locationEl);
-
-          if (item.summary) {
-            const summaryEl = document.createElement('p');
-            summaryEl.className = 'timeline-summary';
-            summaryEl.textContent = item.summary;
-            article.appendChild(summaryEl);
-          }
+          const location = document.createElement('p');
+          location.innerHTML = `<strong>Location:</strong> ${item.location}`;
+          article.appendChild(location);
 
           if (Array.isArray(item.resources) && item.resources.length) {
             const resources = document.createElement('div');
@@ -94,6 +78,12 @@ async function loadSeminars() {
             });
             article.appendChild(resources);
           }
+
+          const moreLink = document.createElement('a');
+          moreLink.href = slug ? `seminar-detail.html?slug=${encodeURIComponent(slug)}` : '#';
+          moreLink.className = 'inline-link';
+          moreLink.textContent = 'View seminar details';
+          article.appendChild(moreLink);
 
           fragment.appendChild(article);
         });

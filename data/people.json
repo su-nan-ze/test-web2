@@ -2,42 +2,42 @@
   {
     "name": "Dr. Lin Mei",
     "position": "Professor & Lab Director",
-    "email": "lin.mei@cis-lab.example",
+    "email": "lin.mei@letlab.example",
     "website": "https://linmei.example",
     "role": "Faculty"
   },
   {
     "name": "Dr. Daniel Ortega",
     "position": "Associate Professor",
-    "email": "daniel.ortega@cis-lab.example",
+    "email": "daniel.ortega@letlab.example",
     "website": "https://danortega.example",
     "role": "Faculty"
   },
   {
     "name": "Amina Yusuf",
     "position": "Postdoctoral Fellow",
-    "email": "amina.yusuf@cis-lab.example",
+    "email": "amina.yusuf@letlab.example",
     "website": "https://aminayusuf.example",
     "role": "Postdoc"
   },
   {
     "name": "Leo Zhang",
     "position": "PhD Candidate",
-    "email": "leo.zhang@cis-lab.example",
+    "email": "leo.zhang@letlab.example",
     "website": "https://leo-zhang.example",
     "role": "Graduate Student"
   },
   {
     "name": "Priya Das",
     "position": "PhD Candidate",
-    "email": "priya.das@cis-lab.example",
+    "email": "priya.das@letlab.example",
     "website": "https://priya-das.example",
     "role": "Graduate Student"
   },
   {
     "name": "Hannah Schultz",
     "position": "Research Engineer",
-    "email": "h.schultz@cis-lab.example",
+    "email": "h.schultz@letlab.example",
     "website": "https://hannahlab.example",
     "role": "Staff"
   }

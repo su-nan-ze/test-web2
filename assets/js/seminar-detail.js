@@ -1,5 +1,10 @@
 import './main.js';
 
+function getQueryParam(name) {
+  const params = new URLSearchParams(window.location.search);
+  return params.get(name);
+}
+
 function formatDateTime(value) {
   return new Date(value).toLocaleString(undefined, {
     year: 'numeric',
@@ -10,21 +15,16 @@ function formatDateTime(value) {
   });
 }
 
-function getSeminarId() {
-  const params = new URLSearchParams(window.location.search);
-  return params.get('id');
-}
-
 async function loadSeminarDetail() {
+  const slug = getQueryParam('slug');
   const container = document.getElementById('seminar-detail');
-  const titleTarget = document.getElementById('seminar-title');
-  const subtitleTarget = document.getElementById('seminar-subtitle');
+  const titleEl = document.getElementById('seminar-title');
+  const subtitleEl = document.getElementById('seminar-subtitle');
 
   if (!container) return;
 
-  const seminarId = getSeminarId();
-  if (!seminarId) {
-    container.innerHTML = '<p>Seminar identifier missing. Please return to the <a href="seminars.html">seminar archive</a>.</p>';
+  if (!slug) {
+    container.innerHTML = '<p>Seminar not found. Please return to the seminar listings.</p>';
     return;
   }
 
@@ -33,85 +33,73 @@ async function loadSeminarDetail() {
     if (!response.ok) throw new Error(`Failed to load seminars: ${response.status}`);
     const seminars = await response.json();
 
-    const seminar = seminars.find((item) => item.id === seminarId);
+    const seminar = seminars.find((item) => item.slug === slug);
     if (!seminar) {
-      container.innerHTML = '<p>We could not find that seminar. Please return to the <a href="seminars.html">seminar archive</a>.</p>';
+      container.innerHTML = '<p>Seminar not found. Please return to the seminar listings.</p>';
       return;
     }
 
-    if (titleTarget) {
-      titleTarget.textContent = seminar.title;
-    }
-    if (subtitleTarget) {
-      subtitleTarget.textContent = seminar.speaker;
-    }
+    if (titleEl) titleEl.textContent = seminar.title;
+    if (subtitleEl) subtitleEl.textContent = seminar.speaker;
 
-    const detail = document.createElement('article');
-    detail.className = 'detail-card';
+    const fragment = document.createDocumentFragment();
 
-    const metadata = document.createElement('dl');
-    metadata.className = 'detail-metadata';
+    const metaList = document.createElement('dl');
+    metaList.className = 'detail-meta';
 
-    const addMeta = (label, value) => {
-      if (!value) return;
-      const block = document.createElement('div');
-      const dt = document.createElement('dt');
-      dt.textContent = label;
-      const dd = document.createElement('dd');
-      dd.textContent = value;
-      block.appendChild(dt);
-      block.appendChild(dd);
-      metadata.appendChild(block);
-    };
+    const dateTerm = document.createElement('dt');
+    dateTerm.textContent = 'Date & Time';
+    const dateValue = document.createElement('dd');
+    dateValue.textContent = formatDateTime(seminar.datetime);
 
-    addMeta('Speaker', seminar.speaker);
-    addMeta('Date & Time', formatDateTime(seminar.datetime));
-    addMeta('Location', seminar.location);
+    const locationTerm = document.createElement('dt');
+    locationTerm.textContent = 'Location';
+    const locationValue = document.createElement('dd');
+    locationValue.textContent = seminar.location;
 
-    detail.appendChild(metadata);
+    metaList.append(dateTerm, dateValue, locationTerm, locationValue);
+    fragment.appendChild(metaList);
 
-    if (seminar.summary) {
-      const summary = document.createElement('p');
-      summary.className = 'detail-summary';
-      summary.textContent = seminar.summary;
-      detail.appendChild(summary);
+    if (seminar.description) {
+      const description = document.createElement('p');
+      description.textContent = seminar.description;
+      fragment.appendChild(description);
     }
 
     if (Array.isArray(seminar.resources) && seminar.resources.length) {
-      const resourceSection = document.createElement('section');
-      resourceSection.className = 'detail-resources';
-      const heading = document.createElement('h2');
-      heading.textContent = 'Resources';
-      resourceSection.appendChild(heading);
+      const resourcesHeading = document.createElement('h2');
+      resourcesHeading.textContent = 'Resources';
+      fragment.appendChild(resourcesHeading);
 
-      const list = document.createElement('ul');
+      const resourcesList = document.createElement('ul');
+      resourcesList.className = 'link-list';
+
       seminar.resources.forEach((resource) => {
-        if (!resource?.url) return;
         const item = document.createElement('li');
         const link = document.createElement('a');
         link.href = resource.url;
-        link.textContent = resource.label ?? 'Download';
-        link.target = resource.url.startsWith('http') ? '_blank' : '_self';
-        link.rel = resource.url.startsWith('http') ? 'noopener noreferrer' : '';
+        if (resource.url.startsWith('http')) {
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+        }
+        link.textContent = resource.label ?? 'Resource';
         item.appendChild(link);
-        list.appendChild(item);
+        resourcesList.appendChild(item);
       });
 
-      if (list.childElementCount) {
-        resourceSection.appendChild(list);
-        detail.appendChild(resourceSection);
-      }
+      fragment.appendChild(resourcesList);
     }
 
-    const backLink = document.createElement('p');
-    backLink.className = 'detail-back';
-    backLink.innerHTML = '← <a href="seminars.html">Back to Seminars</a>';
+    const backLink = document.createElement('a');
+    backLink.href = 'seminars.html';
+    backLink.className = 'inline-link';
+    backLink.textContent = 'Back to seminars';
+    fragment.appendChild(backLink);
 
     container.innerHTML = '';
-    container.appendChild(detail);
-    container.appendChild(backLink);
+    container.appendChild(fragment);
   } catch (error) {
-    container.innerHTML = '<p>Unable to load seminar information. Please try again later.</p>';
+    container.innerHTML = '<p>Unable to load seminar details at this time.</p>';
     console.error(error);
   }
 }
