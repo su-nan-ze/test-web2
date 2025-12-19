@@ -1,12 +1,12 @@
 [
   {
-    "slug": "welcome-to-lab-homepage",
-    "title": "Welcome to the Lab Homepage",
-    "date": "2025-05-01",
-    "description": "Welcome to our lab homepage to learn about our latest news and research directions.",
+    "slug": "welcome-to-the-lab-website",
+    "title": "Welcome to the Lab Website",
+    "date": "2025-06-01",
+    "description": "Welcome to the lab website, your home for updates on our research, people, and events.",
     "content": [
-      "Welcome to our lab homepage! We are committed to sharing cutting-edge research updates, team stories, and collaboration opportunities.",
-      "Please check back regularly to catch upcoming events, academic releases, and recruitment information."
+      "Welcome to the lab website! Explore our research highlights, meet the team, and stay connected with upcoming events.",
+      "Check back often for announcements on new publications, seminars, and collaboration opportunities."
     ]
   }
 ]
