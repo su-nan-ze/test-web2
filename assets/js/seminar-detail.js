@@ -6,7 +6,7 @@ function getQueryParam(name) {
 }
 
 function formatDateTime(value) {
-  return new Date(value).toLocaleString(undefined, {
+  return new Date(value).toLocaleString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -52,12 +52,16 @@ async function loadSeminarDetail() {
     const dateValue = document.createElement('dd');
     dateValue.textContent = formatDateTime(seminar.datetime);
 
-    const locationTerm = document.createElement('dt');
-    locationTerm.textContent = 'Location';
-    const locationValue = document.createElement('dd');
-    locationValue.textContent = seminar.location;
+    metaList.append(dateTerm, dateValue);
 
-    metaList.append(dateTerm, dateValue, locationTerm, locationValue);
+    if (seminar.location) {
+      const locationTerm = document.createElement('dt');
+      locationTerm.textContent = 'Location';
+      const locationValue = document.createElement('dd');
+      locationValue.textContent = seminar.location;
+
+      metaList.append(locationTerm, locationValue);
+    }
     fragment.appendChild(metaList);
 
     if (seminar.description) {
