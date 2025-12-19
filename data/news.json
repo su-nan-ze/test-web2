@@ -1,32 +1,12 @@
 [
   {
-    "slug": "multi-year-grant-for-human-ai-research",
-    "title": "CIS-Lab receives multi-year grant for human-AI collaboration research",
-    "date": "2025-04-10",
-    "description": "Our team was awarded a new grant to explore trustworthy AI for healthcare decision support systems.",
+    "slug": "welcome-to-lab-homepage",
+    "title": "欢迎来到实验室主页",
+    "date": "2025-05-01",
+    "description": "欢迎访问实验室主页，了解我们的最新动态与研究方向。",
     "content": [
-      "The Cryptography and Information Security Laboratory (CIS-Lab) will lead a three-year initiative focused on trustworthy decision support tools for clinicians.",
-      "The project brings together collaborators from medicine, human-computer interaction, and privacy-preserving machine learning to deploy pilot systems at partner hospitals."
-    ]
-  },
-  {
-    "slug": "new-publication-accepted-at-acm-chi",
-    "title": "New publication accepted at ACM CHI",
-    "date": "2025-02-28",
-    "description": "Congratulations to the Interactive Systems group for their paper on explainable user interfaces.",
-    "content": [
-      "The paper proposes a lightweight explanation toolkit that enables rapid testing of transparency techniques in interactive environments.",
-      "Lead author Sophia Patel will present the work during the Explainable AI session on May 8 in Honolulu, HI."
-    ]
-  },
-  {
-    "slug": "welcome-2025-graduate-researchers",
-    "title": "Welcome our 2025 cohort of graduate researchers",
-    "date": "2025-01-15",
-    "description": "We are excited to welcome six new graduate students joining the lab this semester.",
-    "content": [
-      "Incoming students will join research thrusts in secure distributed systems, post-quantum cryptography, and human factors in security.",
-      "Please join us in welcoming them at the spring kickoff reception on February 2."
+      "欢迎来到实验室主页！我们致力于分享前沿研究成果、团队故事和合作机会。",
+      "请持续关注此栏目以获取最新的活动安排、学术发布和团队招聘信息。"
     ]
   }
 ]
