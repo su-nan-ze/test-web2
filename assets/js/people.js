@@ -18,6 +18,10 @@ async function loadPeople() {
       filter.appendChild(option);
     });
 
+    const formatEmail = (email) => (email ? `<a href="mailto:${email}">${email}</a>` : '');
+    const formatWebsite = (website) =>
+      website ? `<a href="${website}" target="_blank" rel="noopener">${website}</a>` : '';
+
     const renderRows = () => {
       const selectedRole = filter.value;
       const fragment = document.createDocumentFragment();
@@ -29,8 +33,8 @@ async function loadPeople() {
           row.innerHTML = `
             <td data-label="Name">${person.name}</td>
             <td data-label="Job Position">${person.position}</td>
-            <td data-label="Email"><a href="mailto:${person.email}">${person.email}</a></td>
-            <td data-label="Personal Website"><a href="${person.website}" target="_blank" rel="noopener">${person.website}</a></td>
+            <td data-label="Email">${formatEmail(person.email)}</td>
+            <td data-label="Personal Website">${formatWebsite(person.website)}</td>
           `;
           fragment.appendChild(row);
         });
