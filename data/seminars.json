@@ -1,50 +1,16 @@
 [
   {
-    "slug": "designing-transparent-ai-systems",
-    "title": "Designing Transparent AI Systems",
-    "speaker": "Prof. Elena Ruiz (University of Madrid)",
-    "datetime": "2025-04-18T10:00:00",
-    "location": "Room 310, Innovation Hall",
+    "slug": "rebound-attack-whirlpool-groestl",
+    "title": "The Rebound Attack: Cryptanalysis of Reduced Whirlpool and Grøstl",
+    "speaker": "Yuan Gao",
+    "datetime": "2025-12-09T20:00:00",
+    "location": "TBD",
     "year": 2025,
-    "description": "Prof. Ruiz will cover design principles and practical evaluations of AI transparency tooling in safety-critical workflows.",
+    "description": "An overview of rebound attacks applied to reduced-round Whirlpool and Grøstl, covering techniques, findings, and implications for hash function design.",
     "resources": [
       {
-        "label": "Slides (PDF)",
-        "url": "assets/resources/2025-04-18-slides.pdf"
-      }
-    ]
-  },
-  {
-    "slug": "edge-intelligence-for-smart-manufacturing",
-    "title": "Edge Intelligence for Smart Manufacturing",
-    "speaker": "Dr. Marcus Feld (TechForge Labs)",
-    "datetime": "2025-03-28T14:00:00",
-    "location": "Room 210, Innovation Hall",
-    "year": 2025,
-    "description": "Dr. Feld discusses lessons from deploying edge analytics platforms across factories and highlights open research problems.",
-    "resources": [
-      {
-        "label": "Whitepaper",
-        "url": "https://example.com/edge-intelligence-whitepaper.pdf"
-      },
-      {
-        "label": "Recording",
-        "url": "https://example.com/edge-intelligence-recording"
-      }
-    ]
-  },
-  {
-    "slug": "collaborative-robotics-in-healthcare",
-    "title": "Collaborative Robotics in Healthcare",
-    "speaker": "Dr. Noriko Tanaka (Osaka Robotics Center)",
-    "datetime": "2024-12-06T09:30:00",
-    "location": "Hybrid (Zoom + Room 102)",
-    "year": 2024,
-    "description": "Dr. Tanaka shares clinical case studies illustrating how collaborative robots improve patient outcomes and staff safety.",
-    "resources": [
-      {
-        "label": "Seminar Paper (PDF)",
-        "url": "assets/resources/2024-12-06-paper.pdf"
+        "label": "Paper",
+        "url": "https://link.springer.com/chapter/10.1007/978-3-642-03317-9_16#citeas"
       }
     ]
   }
