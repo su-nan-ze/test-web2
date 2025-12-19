@@ -4,7 +4,6 @@
     "title": "The Rebound Attack: Cryptanalysis of Reduced Whirlpool and Grøstl",
     "speaker": "Yuan Gao",
     "datetime": "2025-12-09T20:00:00",
-    "location": "TBD",
     "year": 2025,
     "description": "An overview of rebound attacks applied to reduced-round Whirlpool and Grøstl, covering techniques, findings, and implications for hash function design.",
     "resources": [

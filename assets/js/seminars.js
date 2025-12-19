@@ -1,7 +1,7 @@
 import './main.js';
 
 function formatDateTime(value) {
-  return new Date(value).toLocaleString(undefined, {
+  return new Date(value).toLocaleString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -61,9 +61,11 @@ async function loadSeminars() {
           header.appendChild(time);
           article.appendChild(header);
 
-          const location = document.createElement('p');
-          location.innerHTML = `<strong>Location:</strong> ${item.location}`;
-          article.appendChild(location);
+          if (item.location) {
+            const location = document.createElement('p');
+            location.innerHTML = `<strong>Location:</strong> ${item.location}`;
+            article.appendChild(location);
+          }
 
           if (Array.isArray(item.resources) && item.resources.length) {
             const resources = document.createElement('div');
