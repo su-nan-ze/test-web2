@@ -9,6 +9,11 @@ async function loadPublications() {
     if (!response.ok) throw new Error(`Failed to load publications: ${response.status}`);
     const publications = await response.json();
 
+    if (!Array.isArray(publications) || publications.length === 0) {
+      publicationsList.innerHTML = '<p>No publications available at this time.</p>';
+      return;
+    }
+
     const grouped = publications.reduce((acc, item) => {
       const year = item.year ?? 'Other';
       acc[year] = acc[year] ?? [];
