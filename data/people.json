@@ -1,37 +1,30 @@
 [
   {
     "name": "Hailun Yan",
-    "position": "Associate Professor",
+    "position": "Tenure-track assistant professor",
     "email": "hailun.yan@ucas.ac.cn",
     "website": "https://sites.google.com/view/yanhailun",
-    "role": "Associate Professor"
+    "role": "Tenure-track assistant professor"
   },
   {
     "name": "Yuexing Yue",
-    "position": "Ph.D candidate",
+    "position": "Ph.D student",
     "email": "",
     "website": "",
-    "role": "Ph.D candidate"
+    "role": "Ph.D student"
   },
   {
     "name": "Zhenyu Zhao",
-    "position": "master candidate",
+    "position": "Master student",
     "email": "",
     "website": "",
-    "role": "master candidate"
+    "role": "Master student"
   },
   {
     "name": "Anze Sun",
-    "position": "master candidate",
+    "position": "Master student",
     "email": "",
     "website": "",
-    "role": "master candidate"
-  },
-  {
-    "name": "Yuan Gao",
-    "position": "Undergraduate",
-    "email": "",
-    "website": "",
-    "role": "Undergraduate"
+    "role": "Master student"
   }
 ]
