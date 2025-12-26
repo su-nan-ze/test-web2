@@ -87,7 +87,6 @@ async function loadHomePublications() {
     const featured = sorted.slice(0, 3);
 
     if (!featured.length) {
-      publicationsList.innerHTML = '<p>Publication previews are coming soon. Visit the archive for more.</p>';
       return;
     }
 
@@ -143,10 +142,8 @@ async function loadHomePublications() {
     publicationsList.innerHTML = '';
     publicationsList.appendChild(fragment);
   } catch (error) {
-    publicationsList.innerHTML = '<p>Unable to load publications right now. Please check back soon.</p>';
     console.error(error);
   }
 }
 
 loadHomePublications();
-
