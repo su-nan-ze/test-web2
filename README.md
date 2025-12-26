@@ -4,7 +4,8 @@ Static laboratory website inspired by the [Su Nan Ze academic template](https://
 
 ## Structure
 
-- `index.html` – Home page with hero, news, research highlights, featured publications, and contact details.
+- `index.html` – Home page with hero, news, research highlights, and featured publications.
+- `contact.html` – Dedicated contact page with address and email details.
 - `people.html` – Team directory rendered from `data/people.json` into a sortable table with name, job position, email, and personal website columns.
 - `news.html` – News archive sourced from `data/news.json` with year filtering and links to item detail pages.
 - `seminars.html` – Seminar timeline rendered from `data/seminars.json`, supporting links to PDFs and other resources plus detail pages for each session.
