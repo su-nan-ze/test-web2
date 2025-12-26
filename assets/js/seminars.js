@@ -4,9 +4,7 @@ function formatDateTime(value) {
   return new Date(value).toLocaleString('en-US', {
     year: 'numeric',
     month: 'long',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: '2-digit'
+    day: 'numeric'
   });
 }
 
