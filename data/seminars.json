@@ -1,23 +1,5 @@
 [
   {
-    "slug": "addendum-how-small-can-s-boxes-be",
-    "title": "Addendum to How Small Can S-boxes Be? / How Small Can S-boxes Be?",
-    "speaker": "Zhenyu Zhao",
-    "datetime": "2025-11-05T20:00:00",
-    "year": 2025,
-    "description": "",
-    "resources": [
-      {
-        "label": "Addendum to How Small Can S-boxes Be?",
-        "url": "https://tosc.iacr.org/index.php/ToSC/article/view/12248"
-      },
-      {
-        "label": "How Small Can S-boxes Be?",
-        "url": "https://tosc.iacr.org/index.php/ToSC/article/view/12088"
-      }
-    ]
-  },
-  {
     "slug": "new-general-mds-matrix-construction",
     "title": "New General MDS Matrix Construction Method Towards Low Area",
     "speaker": "Zhenyu Zhao",
@@ -26,7 +8,7 @@
     "description": "",
     "resources": [
       {
-        "label": "Paper",
+        "label": "New General MDS Matrix Construction Method Towards Low Area",
         "url": "https://tosc.iacr.org/index.php/ToSC/article/view/12488"
       }
     ]
@@ -42,6 +24,24 @@
       {
         "label": "Paper",
         "url": "https://link.springer.com/chapter/10.1007/978-3-642-03317-9_16#citeas"
+      }
+    ]
+  },
+  {
+    "slug": "addendum-how-small-can-s-boxes-be",
+    "title": "Addendum to How Small Can S-boxes Be? / How Small Can S-boxes Be?",
+    "speaker": "Zhenyu Zhao",
+    "datetime": "2025-11-05T20:00:00",
+    "year": 2025,
+    "description": "",
+    "resources": [
+      {
+        "label": "Addendum to How Small Can S-boxes Be?",
+        "url": "https://tosc.iacr.org/index.php/ToSC/article/view/12248"
+      },
+      {
+        "label": "How Small Can S-boxes Be?",
+        "url": "https://tosc.iacr.org/index.php/ToSC/article/view/12088"
       }
     ]
   }
